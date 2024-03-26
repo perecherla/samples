@@ -1,0 +1,241 @@
+2024-03-26 15:48:38,936 [INFO] Logger process running.
+2024-03-26 15:48:38,920 [INFO] Main process started.
+2024-03-26 15:48:38,921 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:48:38,921 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:48:38,922 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:48:38,922 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:48:38,922 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:48:38,922 [INFO] Main process waiting...
+2024-03-26 15:48:38,922 [INFO] Main process waiting...
+2024-03-26 15:48:38,922 [INFO] Main process waiting...
+2024-03-26 15:48:38,922 [INFO] Main process done.
+2024-03-26 15:48:38,922 [INFO] Main process done.
+2024-03-26 15:48:38,922 [INFO] Main process done.
+2024-03-26 15:48:38,939 [INFO] Logger process shutting down.
+2024-03-26 15:53:53,668 [INFO] Logger process running.
+2024-03-26 15:53:53,653 [INFO] Main process started.
+2024-03-26 15:53:53,654 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:53:53,654 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:53:53,654 [INFO] file_op running from first starting.
+2024-03-26 15:53:53,654 [INFO] file_op running from first starting.
+2024-03-26 15:53:53,654 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:53:53,654 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:53:53,654 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:53:53,655 [INFO] file_op running from second starting.
+2024-03-26 15:53:53,655 [INFO] file_op running from second starting.
+2024-03-26 15:53:53,655 [INFO] file_op running from second starting.
+2024-03-26 15:53:53,655 [INFO] Main process waiting...
+2024-03-26 15:53:53,655 [INFO] Main process waiting...
+2024-03-26 15:53:53,655 [INFO] Main process waiting...
+2024-03-26 15:53:53,655 [INFO] Main process done.
+2024-03-26 15:53:53,655 [INFO] Main process done.
+2024-03-26 15:53:53,655 [INFO] Main process done.
+2024-03-26 15:53:53,673 [INFO] Logger process shutting down.
+2024-03-26 15:54:21,344 [INFO] Logger process running.
+2024-03-26 15:54:21,324 [INFO] Main process started.
+2024-03-26 15:54:21,326 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:54:21,326 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:54:21,326 [INFO] file_op running from first.
+2024-03-26 15:54:21,326 [INFO] file_op running from first.
+2024-03-26 15:54:21,327 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:54:21,327 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:54:21,327 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:54:21,327 [INFO] file_op running from second.
+2024-03-26 15:54:21,327 [INFO] file_op running from second.
+2024-03-26 15:54:21,327 [INFO] file_op running from second.
+2024-03-26 15:54:21,328 [INFO] Main process waiting...
+2024-03-26 15:54:21,328 [INFO] Main process waiting...
+2024-03-26 15:54:21,328 [INFO] Main process waiting...
+2024-03-26 15:54:21,328 [INFO] Main process done.
+2024-03-26 15:54:21,328 [INFO] Main process done.
+2024-03-26 15:54:21,328 [INFO] Main process done.
+2024-03-26 15:54:21,349 [INFO] Logger process shutting down.
+2024-03-26 15:58:27,273 [INFO] Logger process running.
+2024-03-26 15:58:27,258 [INFO] Main process started.
+2024-03-26 15:58:27,259 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:58:27,259 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:58:27,259 [INFO] file_op running from first.
+2024-03-26 15:58:27,259 [INFO] file_op running from first.
+2024-03-26 15:58:27,259 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:58:27,259 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:58:27,259 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:58:27,260 [INFO] file_op running from second.
+2024-03-26 15:58:27,260 [INFO] file_op running from second.
+2024-03-26 15:58:27,260 [INFO] file_op running from second.
+2024-03-26 15:58:27,260 [INFO] Main process waiting...
+2024-03-26 15:58:27,260 [INFO] Main process waiting...
+2024-03-26 15:58:27,260 [INFO] Main process waiting...
+2024-03-26 15:58:27,260 [INFO] Main process done.
+2024-03-26 15:58:27,260 [INFO] Main process done.
+2024-03-26 15:58:27,260 [INFO] Main process done.
+2024-03-26 15:58:27,275 [INFO] Logger process shutting down.
+2024-03-26 15:59:27,547 [INFO] Logger process running.
+2024-03-26 15:59:27,532 [INFO] Main process started.
+2024-03-26 15:59:27,533 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:59:27,533 [INFO] first_function Child MainProcess starting.
+2024-03-26 15:59:27,533 [INFO] file_op running from first.
+2024-03-26 15:59:27,533 [INFO] file_op running from first.
+2024-03-26 15:59:27,533 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:59:27,533 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:59:27,533 [INFO] second_function Child MainProcess starting.
+2024-03-26 15:59:27,534 [INFO] file_op running from second.
+2024-03-26 15:59:27,534 [INFO] file_op running from second.
+2024-03-26 15:59:27,534 [INFO] file_op running from second.
+2024-03-26 15:59:27,534 [INFO] Main process waiting...
+2024-03-26 15:59:27,534 [INFO] Main process waiting...
+2024-03-26 15:59:27,534 [INFO] Main process waiting...
+2024-03-26 15:59:27,534 [INFO] Main process done.
+2024-03-26 15:59:27,534 [INFO] Main process done.
+2024-03-26 15:59:27,534 [INFO] Main process done.
+2024-03-26 15:59:27,550 [INFO] Logger process shutting down.
+2024-03-26 16:01:30,269 [INFO] Logger process running.
+2024-03-26 16:01:30,255 [INFO] Main process started.
+2024-03-26 16:01:30,256 [INFO] first_function Child MainProcess starting.
+2024-03-26 16:01:30,257 [INFO] file_op running from first.
+2024-03-26 16:01:30,257 [INFO] second_function Child MainProcess starting.
+2024-03-26 16:01:30,257 [INFO] file_op running from second.
+2024-03-26 16:01:30,257 [INFO] Main process waiting...
+2024-03-26 16:01:30,257 [INFO] Main process done.
+2024-03-26 16:01:30,272 [INFO] Logger process shutting down.
+2024-03-26 16:14:55,564 [INFO] Logger process running.
+2024-03-26 16:14:55,546 [INFO] Main process started.
+2024-03-26 16:14:55,547 [INFO] <class 'object'>
+2024-03-26 16:14:55,547 [INFO] first_function Child MainProcess starting.
+2024-03-26 16:14:55,549 [INFO] file_op running from first.
+2024-03-26 16:14:55,549 [INFO] second_function Child MainProcess starting.
+2024-03-26 16:14:55,549 [INFO] file_op running from second.
+2024-03-26 16:14:55,549 [INFO] Main process waiting...
+2024-03-26 16:14:55,549 [INFO] Main process done.
+2024-03-26 16:14:55,566 [INFO] Logger process shutting down.
+2024-03-26 16:15:14,726 [INFO] Logger process running.
+2024-03-26 16:15:14,711 [INFO] Main process started.
+2024-03-26 16:15:14,712 [INFO] <class 'object'>
+2024-03-26 16:15:14,712 [INFO] first_function Child MainProcess starting.
+2024-03-26 16:15:14,712 [INFO] file_op running from first.
+2024-03-26 16:15:14,713 [INFO] <class 'object'>
+2024-03-26 16:15:14,713 [INFO] second_function Child MainProcess starting.
+2024-03-26 16:15:14,713 [INFO] file_op running from second.
+2024-03-26 16:15:14,713 [INFO] Main process waiting...
+2024-03-26 16:15:14,713 [INFO] Main process done.
+2024-03-26 16:15:14,730 [INFO] Logger process shutting down.
+2024-03-26 16:15:40,701 [INFO] Logger process running.
+2024-03-26 16:37:00,212 [INFO] Logger process running.
+2024-03-26 16:37:00,193 [INFO] Main process started.
+2024-03-26 16:37:00,194 [INFO] Main process waiting...
+2024-03-26 16:37:00,194 [INFO] Main process done.
+2024-03-26 16:37:00,216 [INFO] Logger process shutting down.
+2024-03-26 16:38:00,680 [INFO] Logger process running.
+2024-03-26 16:38:00,660 [INFO] Main process started.
+2024-03-26 16:38:00,661 [INFO] Main process waiting...
+2024-03-26 16:38:00,662 [INFO] Main process done.
+2024-03-26 16:38:00,682 [INFO] Logger process shutting down.
+2024-03-26 16:38:15,497 [INFO] Logger process running.
+2024-03-26 16:38:15,483 [INFO] Main process started.
+2024-03-26 16:38:15,483 [INFO] Main process waiting...
+2024-03-26 16:38:15,484 [INFO] Main process done.
+2024-03-26 16:38:15,499 [INFO] Logger process shutting down.
+2024-03-26 16:38:15,500 [INFO] second_function Child SpawnPoolWorker-1 starting.
+2024-03-26 16:38:15,501 [INFO] file_op running from second.
+2024-03-26 16:38:32,970 [INFO] Logger process running.
+2024-03-26 16:38:32,956 [INFO] Main process started.
+2024-03-26 16:38:32,957 [INFO] Main process waiting...
+2024-03-26 16:38:32,957 [INFO] Main process done.
+2024-03-26 16:38:32,972 [INFO] Logger process shutting down.
+2024-03-26 16:38:38,388 [INFO] Logger process running.
+2024-03-26 16:38:38,372 [INFO] Main process started.
+2024-03-26 16:38:38,374 [INFO] Main process waiting...
+2024-03-26 16:38:38,374 [INFO] Main process done.
+2024-03-26 16:38:38,390 [INFO] Logger process shutting down.
+2024-03-26 16:38:43,932 [INFO] Logger process running.
+2024-03-26 16:38:43,917 [INFO] Main process started.
+2024-03-26 16:38:43,918 [INFO] Main process waiting...
+2024-03-26 16:38:43,918 [INFO] Main process done.
+2024-03-26 16:38:43,934 [INFO] Logger process shutting down.
+2024-03-26 16:39:31,104 [INFO] Logger process running.
+2024-03-26 16:39:31,086 [INFO] Main process started.
+2024-03-26 16:39:31,087 [INFO] Main process waiting...
+2024-03-26 16:39:31,087 [INFO] Main process done.
+2024-03-26 16:39:31,106 [INFO] Logger process shutting down.
+2024-03-26 16:39:33,967 [INFO] Logger process running.
+2024-03-26 16:39:33,950 [INFO] Main process started.
+2024-03-26 16:39:33,951 [INFO] Main process waiting...
+2024-03-26 16:39:33,951 [INFO] Main process done.
+2024-03-26 16:39:33,969 [INFO] Logger process shutting down.
+2024-03-26 16:39:35,394 [INFO] Logger process running.
+2024-03-26 16:39:35,375 [INFO] Main process started.
+2024-03-26 16:39:35,376 [INFO] Main process waiting...
+2024-03-26 16:39:35,376 [INFO] Main process done.
+2024-03-26 16:39:35,396 [INFO] Logger process shutting down.
+2024-03-26 16:39:47,444 [INFO] Logger process running.
+2024-03-26 16:39:47,427 [INFO] Main process started.
+2024-03-26 16:39:47,428 [INFO] Main process waiting...
+2024-03-26 16:39:47,428 [INFO] Main process done.
+2024-03-26 16:39:47,445 [INFO] Logger process shutting down.
+2024-03-26 16:41:39,368 [INFO] Logger process running.
+2024-03-26 16:41:39,352 [INFO] Main process started.
+2024-03-26 16:41:39,353 [INFO] Main process waiting...
+2024-03-26 16:41:39,354 [INFO] Main process done.
+2024-03-26 16:41:39,369 [INFO] Logger process shutting down.
+2024-03-26 16:41:52,461 [INFO] Logger process running.
+2024-03-26 16:41:52,444 [INFO] Main process started.
+2024-03-26 16:41:52,445 [INFO] Main process waiting...
+2024-03-26 16:41:52,445 [INFO] Main process done.
+2024-03-26 16:41:52,463 [INFO] Logger process shutting down.
+2024-03-26 16:42:09,544 [INFO] Logger process running.
+2024-03-26 16:42:09,527 [INFO] Main process started.
+2024-03-26 16:42:09,528 [INFO] Main process waiting...
+2024-03-26 16:42:09,528 [INFO] Main process done.
+2024-03-26 16:42:09,546 [INFO] Logger process shutting down.
+2024-03-26 16:42:25,786 [INFO] Logger process running.
+2024-03-26 16:42:25,770 [INFO] Main process started.
+2024-03-26 16:42:25,772 [INFO] Main process waiting...
+2024-03-26 16:42:25,772 [INFO] Main process done.
+2024-03-26 16:42:25,788 [INFO] Logger process shutting down.
+2024-03-26 16:43:32,366 [INFO] Logger process running.
+2024-03-26 16:43:32,346 [INFO] Main process started.
+2024-03-26 16:43:32,346 [INFO] Main process waiting...
+2024-03-26 16:43:32,347 [INFO] Main process done.
+2024-03-26 16:43:32,369 [INFO] Logger process shutting down.
+2024-03-26 16:43:44,411 [INFO] Logger process running.
+2024-03-26 16:43:44,394 [INFO] Main process started.
+2024-03-26 16:43:44,394 [INFO] Main process waiting...
+2024-03-26 16:43:44,395 [INFO] Main process done.
+2024-03-26 16:43:44,412 [INFO] Logger process shutting down.
+2024-03-26 16:43:54,806 [INFO] Logger process running.
+2024-03-26 16:43:54,789 [INFO] Main process started.
+2024-03-26 16:43:54,790 [INFO] Main process waiting...
+2024-03-26 16:43:54,790 [INFO] Main process done.
+2024-03-26 16:43:54,807 [INFO] Logger process shutting down.
+2024-03-26 16:44:43,889 [INFO] Logger process running.
+2024-03-26 16:44:43,875 [INFO] Main process started.
+2024-03-26 16:44:43,875 [INFO] Main process waiting...
+2024-03-26 16:44:43,876 [INFO] Main process done.
+2024-03-26 16:44:43,892 [INFO] Logger process shutting down.
+2024-03-26 16:44:51,841 [INFO] Logger process running.
+2024-03-26 16:44:51,824 [INFO] Main process started.
+2024-03-26 16:44:51,825 [INFO] Main process waiting...
+2024-03-26 16:44:51,825 [INFO] Main process done.
+2024-03-26 16:44:51,842 [INFO] Logger process shutting down.
+2024-03-26 16:47:11,368 [INFO] Logger process running.
+2024-03-26 16:47:11,351 [INFO] Main process started.
+2024-03-26 16:47:11,352 [INFO] Main process waiting...
+2024-03-26 16:47:11,352 [INFO] Main process done.
+2024-03-26 16:47:11,370 [INFO] Logger process shutting down.
+2024-03-26 16:56:25,466 [INFO] Logger process running.
+2024-03-26 16:56:25,450 [INFO] Main process started.
+2024-03-26 16:56:25,451 [INFO] first_function Child MainProcess starting.
+2024-03-26 16:56:25,452 [INFO] file_op running from first.
+2024-03-26 16:56:25,452 [INFO] second_function Child MainProcess starting.
+2024-03-26 16:56:25,452 [INFO] file_op running from second.
+2024-03-26 16:56:25,452 [INFO] Main process waiting...
+2024-03-26 16:56:25,452 [INFO] Main process done.
+2024-03-26 16:56:25,468 [INFO] Logger process shutting down.
+2024-03-26 16:57:03,094 [INFO] Logger process running.
+2024-03-26 16:57:03,080 [INFO] Main process started.
+2024-03-26 16:57:03,081 [INFO] first_function Child MainProcess starting.
+2024-03-26 16:57:03,081 [INFO] file_op running from first.
+2024-03-26 16:57:03,081 [INFO] second_function Child MainProcess starting.
+2024-03-26 16:57:03,081 [INFO] file_op running from second.
+2024-03-26 16:57:03,082 [INFO] Main process waiting...
+2024-03-26 16:57:03,082 [INFO] Main process done.
+2024-03-26 16:57:03,096 [INFO] Logger process shutting down.
