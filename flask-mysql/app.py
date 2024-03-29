@@ -13,8 +13,8 @@ app.secret_key = 'your secret key'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'password'
-app.config['MYSQL_DB'] = 'geekprofile'
+app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_DB'] = 'sampleprofile'
 
 
 mysql = MySQL(app)
@@ -24,8 +24,7 @@ mysql = MySQL(app)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	msg = ''
-	if request.method == 'POST' and 'username' in
-	request.form and 'password' in request.form:
+	if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
 		username = request.form['username']
 		password = request.form['password']
 		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -46,23 +45,18 @@ def login():
 
 @app.route('/logout')
 def logout():
-
-
-session.pop('loggedin', None)
-session.pop('id', None)
-session.pop('username', None)
-return redirect(url_for('login'))
+	session.pop('loggedin', None)
+	session.pop('id', None)
+	session.pop('username', None)
+	return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
 	msg = ''
-	if request.method == 'POST' and 'username' in
-	request.form and 'password' in request.form and
-	'email' in request.form and 'address' in
-	request.form and 'city' in request.form and
-	'country' in request.form and 'postalcode'
-	in request.form and 'organisation' in request.form:
+	if request.method == 'POST' and 'username' in request.form and 'password' in request.form \
+			and 'email' in request.form and 'address' in request.form and 'city' in request.form \
+			and 'country' in request.form and 'postalcode' in request.form and 'organisation' in request.form:
 		username = request.form['username']
 		password = request.form['password']
 		email = request.form['email']
@@ -117,11 +111,9 @@ def display():
 def update():
 	msg = ''
 	if 'loggedin' in session:
-		if request.method == 'POST' and 'username' in request.form
-		and 'password' in request.form and 'email' in request.form and
-		'address' in request.form and 'city' in request.form and 'country'
-		in request.form and 'postalcode' in request.form and
-		'organisation' in request.form:
+		if request.method == 'POST' and 'username' in request.form and 'password' in request.form \
+				and 'email' in request.form and 'address' in request.form and 'city' in request.form\
+				and 'country' in request.form and 'postalcode' in request.form and 'organisation' in request.form:
 			username = request.form['username']
 			password = request.form['password']
 			email = request.form['email']
@@ -160,6 +152,3 @@ def update():
 
 if __name__ == "__main__":
 	app.run(host="localhost", port=int("5000"))
-
-
-# Refer link https://www.geeksforgeeks.org/profile-application-using-python-flask-and-mysql/
