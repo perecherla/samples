@@ -1,0 +1,88 @@
+import mysql.connector
+from mysql.connector import Error
+
+class UpdateDocTable:
+    def _init_(self, env):
+        self.env = env
+        self.conn = None
+
+    def connect(self):
+        try:
+            self.conn = mysql.connector.connect(
+                host='your_host',
+                database='your_database',
+                user='your_user',
+                password='your_password'
+            )
+            if self.conn.is_connected():
+                print('Connected to MySQL database')
+        except Error as e:
+            print(e)
+
+    def close_connection(self):
+        if self.conn is not None and self.conn.is_connected():
+            self.conn.close()
+
+    def execute_query(self, query):
+        try:
+            cursor = self.conn.cursor()
+            cursor.execute(query)
+            return cursor.fetchall()
+        except Error as e:
+            print(e)
+            return None
+
+    def insert_file_info(self, setupid, filename, filesize, upload_year, upload_month, parent_doc_id=None):
+        try:
+            cursor = self.conn.cursor()
+            cursor.callproc('ins_file_info', (setupid, filename, filesize, upload_year, upload_month, 'N', parent_doc_id))
+            self.conn.commit()
+            return cursor.fetchone()[0]
+        except Error as e:
+            print(e)
+            return None
+
+    def update_file_info(self, doc_id, setupid, upload_year, upload_month, is_active, filename, parent_doc_id=None):
+        try:
+            cursor = self.conn.cursor()
+            cursor.callproc('upd_file_info', (doc_id, setupid, upload_year, upload_month, is_active, filename, parent_doc_id))
+            self.conn.commit()
+            return "NRSRO File Record Updated"
+        except Error as e:
+            print(e)
+            return None
+
+    def fetch_upload_info_regular(self, filename):
+        query = f"SELECT dui.setup_id, dui.setup_mon, dui.setup_year FROM ats_doc_upload_info dui " \
+                f"WHERE dui.doc_filename = '{filename}' AND dui.ftp_status = 'S' AND dui.Upload_Status = 'p' " \
+                f"ORDER BY dui.Upload_date DESC"
+        return self.execute_query(query)
+
+    def fetch_upload_info_nrsro(self, parent_doc_id, filename):
+        query = f"SELECT dui.setup_id, dui.setup_mon, dui.setup_year FROM ats_doc_upload_info dui, doc d " \
+                f"WHERE d.doc_id = dui.parent_doc_id AND dui.parent_doc_id = {parent_doc_id} AND " \
+                f"dui.doc_filename = '{filename}' AND dui.ftp_status = 's' AND dui.Upload_Status = 'I' " \
+                f"ORDER BY dui.Upload_date DESC"
+        return self.execute_query(query)
+
+if _name_ == "_main_":
+    env = "your_environment"
+    update_table = UpdateDocTable(env)
+    update_table.connect()
+
+    # Example usage:
+    filename_regular = "regular_file.txt"
+    filename_nrsro = "nrsro_file.txt"
+    regular_upload_info = update_table.fetch_upload_info_regular(filename_regular)
+    nrsro_upload_info = update_table.fetch_upload_info_nrsro(parent_doc_id=123, filename=filename_nrsro)
+    if regular_upload_info:
+        print("Regular Upload Info:", regular_upload_info)
+    else:
+        print("Error fetching regular upload info")
+
+    if nrsro_upload_info:
+        print("NRSRO Upload Info:", nrsro_upload_info)
+    else:
+        print("Error fetching NRSRO upload info")
+
+    update_table.close_connection()

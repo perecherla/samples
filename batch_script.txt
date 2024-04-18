@@ -1,63 +1,95 @@
-#!/usr/bin/env python3
+import subprocess
 import os
-from datetime import datetime
+import datetime
 
-# Define source and destination directories
-source_dir = "source_path"
-destin_dir = "dest_path"
+def move_uploaded_files():
+    source_dir = "source_Path"
+    destin_dir = "dest_path"
+    ENV = "/export/enterprise-docs/stfin/batchjobs/keys"
+    property_file = f"{ENV}/env.properties"
 
-# Define environment variables
-ENV = "/export/enterprise-docs/stfin/batchjobs/keys"
-property_file = f"{ENV}/env.properties"
+    cur_env = subprocess.getoutput(f"cat {property_file} | grep '^BATCH.JOB.ENV' | cut -d':' -f2").strip()
+    prefix = subprocess.getoutput(f"cat {property_file} | grep '^BATCH.JOB.ENV' | cut -d':' -f2").strip()
+    doc_prefix = ""
 
-# Fetch prefix from environment properties
-with open(property_file, "r") as f:
-    for line in f:
-        if line.startswith("BATCH.JOB.ENV"):
-            prefix = line.split(":")[1].strip()
-            break
+    if prefix == "UAT":
+        doc_prefix = "STG"
+        print("doc_prefix changed to:", doc_prefix)
+    elif prefix == "COB":
+        doc_prefix = "PROD"
+        print("doc_prefix changed to:", doc_prefix)
+    else:
+        doc_prefix = prefix
+        print("doc_prefix:", doc_prefix)
 
-# Determine doc prefix based on prefix
-if prefix == "UAT":
-    doc_prefix = "STG"
-    print("doc_prefix changed to:", doc_prefix)
-elif prefix == "COB":
-    doc_prefix = "PROD"
-    print("doc_prefix changed to:", doc_prefix)
-else:
-    doc_prefix = prefix
-    print("doc_prefix:", doc_prefix)
+    curr_dir = "/export/enterprise-docs/stfin/batchjobs/uploadreports"
+    NRSRO_doc_ids = ""
 
-# Set current directory
-curr_dir = "/export/enterprise-docs/stfin/batchjobs/uploadreports"
+    logfile = f"/export/enterprise-docs/stfin/batchjobs/uploadreports/logs/file_moving_report_{datetime.datetime.now().strftime('%m-%d-%Y.%T')}.log"
+    errfile = f"/export/enterprise-docs/stfin/batchjobs/uploadreports/logs/file_moving_report_{datetime.datetime.now().strftime('%m-%d-%Y.%T')}.err"
 
-# Define logfile and errfile
-timestamp = datetime.now().strftime("%m-%d-%Y.%H:%M:%S")
-logfile = f"{curr_dir}/logs/file_moving_report_{timestamp}.log"
-errfile = f"{curr_dir}/logs/file_moving_report_{timestamp}.err"
+    if os.path.exists(errfile):
+        os.remove(errfile)
+    if os.path.exists(logfile):
+        os.remove(logfile)
 
-# Delete existing error file and log file
-if os.path.exists(errfile):
-    os.remove(errfile)
-if os.path.exists(logfile):
-    os.remove(logfile)
+    print("Attempt To Copy The Report Files From FTP Area To Application Area...")
 
-print("Attempt To Copy The Report Files From FTP Area To Application Area...")
+    files = subprocess.getoutput(f"ls -1rt {source_dir}").split('\n')
 
-# Count files to be moved
-filescount = len(os.listdir(source_dir))
+    if len(files) == 0:
+        print("Nothing to move...")
+    else:
+        print(datetime.datetime.now())
+        print(f"{len(files)} File(s) To Be Moved To Application Area...")
 
-if filescount == 0:
-    print("Nothing to move...")
-else:
-    print(f"{filescount} File(s) To Be Moved To Application Area...")
-    
-    for filename in os.listdir(source_dir):
-        filesize = os.path.getsize(os.path.join(source_dir, filename))
-        parent_doc_id = filename.split("_")[0]
-        filename = "".join(filename.split("")[1:])
-        
-        print("Check: Availability of the report to be moved...")
-        
-        # Here you can implement the logic for moving files without calling Java
-        # Continue with the rest of your script...
+        for file in files:
+            file = file.replace(" ", "_")
+            j = file.replace("_", " ")
+            filesize = subprocess.getoutput(f"ls -l {source_dir}/{file} | tr -s ' ' | cut -d ' ' -f5")
+            parent_doc_id = file.split("_")[0]
+            filename = "".join(file.split("")[1:])
+
+            os.chdir(curr_dir)
+
+            print("Check: Availability of the report to be moved...")
+
+            flowtype = subprocess.getoutput(f"java -cp {curr_dir}/UPLOADREPORTS.jar com.citi.sfs-stfin.QueryBatchuploadInfo {cur_env} {parent_doc_id} FlowTypecheck")
+            print("Flow type:", flowtype)
+            print("File name is:", filename)
+
+            if flowtype == "NRSROFlow":
+                uploadstatus = subprocess.getoutput(f"java -cp {curr_dir}/UPLOADREPORTS.jar com.citi.sfs-stfin.QueryBatchuploadInfo {cur_env} {parent_doc_id} NRSROUpload {filename}")
+                print("NRSRO file Upload status:", uploadstatus)
+
+                if uploadstatus == "NRSROUPLOADCOMPLETED":
+                    sh_doc_id = subprocess.getoutput(f"java -cp {curr_dir}/UPLOADREPORTS.jar com.citi.sfs-stfin.UpdateDocTable {cur_env} 3 {parent_doc_id} {filename} {filesize}")
+                    NRSRO_doc_ids += sh_doc_id + ","
+
+                    print(f"Move the File {source_dir}/{filename} AS {destin_dir}{sh_doc_id}{filename}")
+                    if os.path.exists(f"{destin_dir}{doc_prefix}{sh_doc_id}{filename}"):
+                        tmpdate = datetime.datetime.now().strftime('%Y.%m.%d_%H.%M.%S_updated_')
+                        os.rename(f"{destin_dir}{doc_prefix}{sh_doc_id}{filename}", f"{destin_dir}{doc_prefix}{tmpdate}{sh_doc_id}_{filename}")
+                    subprocess.run(["cp", f"{source_dir}/{file}", f"{destin_dir}{doc_prefix}{sh_doc_id}{filename}"])
+                    os.remove(f"{source_dir}/{file}")
+
+                    if os.path.exists(f"{destin_dir}{doc_prefix}{sh_doc_id}{filename}"):
+                        print("Copying of File Done.")
+                        os.remove(file)
+                        sh_doc_id = subprocess.getoutput(f"java -cp {curr_dir}/UPLOADREPORTS.jar com.citi.sfs-stfin.UpdateDocTable {cur_env} 4 {sh_doc_id} {parent_doc_id} {filename} Y")
+                elif uploadstatus == "NRSROUPLOADPENDING":
+                    print("The FTP process is not completed for this NRSRO deal file and will be picked in the next run.")
+
+    NRSRO_doc_ids = NRSRO_doc_ids[:-1]
+    print("NRSRO_doc_ids:", NRSRO_doc_ids)
+    strLength = len(NRSRO_doc_ids)
+    if strLength != 0:
+        print("Email NRSRO Users..")
+        noticestatus = subprocess.getoutput(f"java -cp {curr_dir}/UPLOADREPORTS.jar com.citi.sfs.stfin.NRSROReportNotification {cur_env} {NRSRO_doc_ids}")
+        print(noticestatus)
+
+    print(datetime.datetime.now())
+    print("UPLOADReports END")
+
+if _name_ == "_main_":
+    move_uploaded_files()
